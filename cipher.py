@@ -1,14 +1,14 @@
 
 from json import load
 import rsa
-import base64  # 一种编码  图片---编码  像素点 -- 数字组合
+import base64 
 
 def generateKeys(id):
     (publicKey, privateKey) = rsa.newkeys(1024)    # generate a new key from rsa
     with open('keys/publicKey%s.pem'%id,'wb') as p:       # then save the key into 
         p.write(publicKey.save_pkcs1('PEM'))
     with open('keys/privateKey%s.pem'%id, 'wb') as p:
-        p.write(privateKey.save_pkcs1('PEM'))  # generate 一个public key and broacast a public key  /  存在index里面 / 每一个用户都是index里面的一个attribute
+        p.write(privateKey.save_pkcs1('PEM'))  # generate 一个public key and broacast a public key which stored in an index. Each user is an attribute of an index.
 
 def loadKeys(id):
     with open('keys/publicKey%s.pem'%id, 'rb') as p:
