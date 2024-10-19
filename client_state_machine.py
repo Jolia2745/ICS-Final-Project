@@ -6,7 +6,7 @@ Created on Sun Apr  5 00:00:32 2015
 from chat_utils import *
 import json
 import rsa
-import cipher       # 一开始不行，因为我cipher的文件名忘记加py
+import cipher     
 
 class ClientSM:
     def __init__(self, s):
@@ -15,7 +15,7 @@ class ClientSM:
         self.me = ''
         self.out_msg = ''
         self.s = s
-        self.encryp= False          #!!! 不要忘了写
+        self.encryp= False        
 
     def encryption(self,encr=True):       #!!! state change
         self.encryp= encr
